@@ -1,0 +1,141 @@
+$spacer:     1rem;
+$spacer-x:   $spacer;
+$spacer-y:   $spacer;
+$spacers: (
+  0: (
+    x:   0,
+    y:   0
+  ),
+  h: (
+    x:   ($spacer-x * 0.5),
+    y:   ($spacer-y * 0.5)
+  ),
+  1: (
+    x:   $spacer-x,
+    y:   $spacer-y
+  ),
+  2: (
+    x:   ($spacer-x * 1.5),
+    y:   ($spacer-y * 1.5)
+  ),
+  3: (
+    x:   ($spacer-x * 2),
+    y:   ($spacer-y * 2)
+  ),
+  4: (
+    x:   ($spacer-x * 3.5),
+    y:   ($spacer-y * 3.5)
+  ),
+  5: (
+    x:   ($spacer-x * 4),
+    y:   ($spacer-y * 4)
+  ),
+  6: (
+    x:   ($spacer-x * 4.5),
+    y:   ($spacer-y * 4.5)
+  ),
+  7: (
+    x:   ($spacer-x * 5),
+    y:   ($spacer-y * 5)
+  ),
+  8: (
+    x:   ($spacer-x * 5.5),
+    y:   ($spacer-y * 5.5)
+  ),
+  9: (
+    x:   ($spacer-x * 6),
+    y:   ($spacer-y * 6)
+  ),
+  10: (
+    x:   ($spacer-x * 7),
+    y:   ($spacer-y * 7)
+  )
+);
+
+$nSpacers: (
+  h: (
+    x:   ($spacer-x * -0.5),
+    y:   ($spacer-y * -0.5)
+  ),
+  1: (
+    x:   ($spacer-x * -1),
+    y:   ($spacer-y * -1)
+  ),
+  2: (
+    x:   ($spacer-x * -1.5),
+    y:   ($spacer-y * -1.5)
+  ),
+  3: (
+    x:   ($spacer-x * -2),
+    y:   ($spacer-y * -2)
+  ),
+  4: (
+    x:   ($spacer-x * -3.5),
+    y:   ($spacer-y * -3.5)
+  ),
+  5: (
+    x:   ($spacer-x * -4),
+    y:   ($spacer-y * -4)
+  ),
+  6: (
+    x:   ($spacer-x * -4.5),
+    y:   ($spacer-y * -4.5)
+  ),
+  7: (
+    x:   ($spacer-x * -5),
+    y:   ($spacer-y * -5)
+  ),
+  8: (
+    x:   ($spacer-x * -5.5),
+    y:   ($spacer-y * -5.5)
+  ),
+  9: (
+    x:   ($spacer-x * -6),
+    y:   ($spacer-y * -6)
+  ),
+  10: (
+    x:   ($spacer-x * -7),
+    y:   ($spacer-y * -7)
+  )
+);
+
+@mixin spacing() {
+    @each $prop, $abbrev in (margin: m, padding: p) {
+      @each $size, $lengths in $spacers {
+        $length-x:   map-get($lengths, x);
+        $length-y:   map-get($lengths, y);
+
+        .#{$abbrev}-#{$size} { #{$prop}: $length-y $length-x !important; } // a = All sides
+        .#{$abbrev}x-#{$size} { #{$prop}-left: $length-x !important; #{$prop}-right: $length-x !important; } // margin x
+        .#{$abbrev}y-#{$size} { #{$prop}-top: $length-y !important; #{$prop}-bottom: $length-y !important; } // margin y
+        .#{$abbrev}t-#{$size} { #{$prop}-top:    $length-y !important; }
+        .#{$abbrev}r-#{$size} { #{$prop}-right:  $length-x !important; }
+        .#{$abbrev}b-#{$size} { #{$prop}-bottom: $length-y !important; }
+        .#{$abbrev}l-#{$size} { #{$prop}-left:   $length-x !important; }
+        .#{$abbrev}l-auto { #{$prop}-left: auto !important; }
+        .#{$abbrev}r-auto { #{$prop}-right: auto !important; }
+        .#{$abbrev}x-auto { #{$prop}-right: auto !important; #{$prop}-left: auto !important; }
+      }
+    }
+}
+
+@mixin negativeMargin() {
+    @each $prop, $abbrev in (margin: m) {
+      @each $size, $lengths in $nSpacers {
+        $length-x:   map-get($lengths, x);
+        $length-y:   map-get($lengths, y);
+
+        .#{$abbrev}-n#{$size} { #{$prop}: $length-y $length-x !important; } // a = All sides
+        .#{$abbrev}x-n#{$size} { #{$prop}-left: $length-x !important; #{$prop}-right: $length-x !important; } // margin x
+        .#{$abbrev}y-n#{$size} { #{$prop}-top: $length-y !important; #{$prop}-bottom: $length-y !important; } // margin y
+        .#{$abbrev}t-n#{$size} { #{$prop}-top:    $length-y !important; }
+        .#{$abbrev}r-n#{$size} { #{$prop}-right:  $length-x !important; }
+        .#{$abbrev}b-n#{$size} { #{$prop}-bottom: $length-y !important; }
+        .#{$abbrev}l-n#{$size} { #{$prop}-left:   $length-x !important; }
+      }
+    }
+}
+
+@include spacing;
+
+@include negativeMargin;

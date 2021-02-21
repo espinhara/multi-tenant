@@ -1,0 +1,15 @@
+.list-group{
+    padding: 1rem;
+    background-color: $color-white;
+    .list-item{
+        padding: 1rem 0;
+        flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid $color-gray2;
+        &:last-child{
+            border: none;
+        }
+    }
+}

@@ -1,0 +1,106 @@
+.badge{
+    display: inline-flex;
+    padding: 0 .5rem;
+    font-size: 1rem;
+    border-radius: 2rem;
+    background-color: $color-gray2;
+    color: $color-text;
+    min-width: 24px;
+    line-height: 24px;
+    justify-content: center;
+    box-sizing: border-box;
+    flex-grow: 0;
+    line-height: 1;
+    &.ghost{
+        min-width: 26px;
+        line-height: 24px;
+        background: transparent;
+    }
+    &.sm{
+        min-width: 20px;
+        font-size: .875rem;
+        padding: 0 .2rem;
+        &.ghost{
+            min-width: 22px;
+            line-height: 20px;
+        }
+    }
+    &-primary{
+        background-color: $color-primary;
+        color: white;
+    }
+    &-blue,
+    &-info{
+        background-color: $color-blue;
+        color: white;
+    }
+    &-coral{
+        background-color: $color-coral;
+        color: white;
+    }
+    &-warning,
+    &-yellow{
+        background-color: $color-yellow;
+        color: white;
+    }
+    &-danger,
+    &-red{
+        background-color: $color-red;
+        color: white;
+    }
+    &-success,
+    &-green{
+        background-color: $color-green;
+        color: white;
+    }
+    &-gray1{
+        background-color: $color-gray1;
+        color: $color-gray2;
+        &.ghost{
+            border: 1px solid $color-gray1;
+            color: $color-gray2;
+            background: transparent;
+        }
+    }
+    &-gray2{
+        background-color: $color-gray2;
+        color: $color-gray4;
+        &.ghost{
+            border: 1px solid $color-gray2;
+            color: $color-gray3;
+            background: transparent;
+        }
+    }
+    &-gray3{
+        background-color: $color-gray3;
+        color: $color-text;
+        &.ghost{
+            border: 1px solid $color-gray3;
+            color: $color-gray4;
+        }
+    }
+    &-gray4{
+        background-color: $color-gray4;
+        color: $color-text;
+        &.ghost{
+            border: 1px solid $color-gray4;
+            color: $color-text;
+        }
+    }
+    &-text{
+        background-color: $color-gray4;
+        color: $color-text;
+        &.ghost{
+            border: 1px solid $color-gray4;
+            color: $color-text;
+        }
+    }
+    &-text-dark{
+        background-color: $color-text;
+        color: $color-text-dark;
+        &.ghost{
+            border: 1px solid $color-text;
+            color: $color-text-dark;
+        }
+    }
+}

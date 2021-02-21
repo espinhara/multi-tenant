@@ -1,0 +1,38 @@
+.divider{
+    position: relative;
+    display: flex;
+    font-size: 0.9286rem;
+    height: 2rem;
+    &.sm{
+        height: 1rem;
+    }
+    &.line{
+        height: 1px;
+    }
+    &.hr{
+        align-items: center;
+        justify-content: center;
+        span{
+            padding: 0 1rem;
+        }
+        &:before{
+            content: '';
+            border-top: 1px solid $color-gray2;
+            display: block;
+            flex-grow: 1;
+        }
+        &:after{
+            content: '';
+            border-top: 1px solid $color-gray2;
+            display: block;
+            flex-grow: 1;
+        }
+    }
+    &-v{
+        height: auto;
+        flex-shrink: 0;
+        width: 1px;
+        background-color: $color-gray1;
+        margin: .7rem 1rem;
+    }
+}

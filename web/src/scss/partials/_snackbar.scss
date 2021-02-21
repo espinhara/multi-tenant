@@ -1,0 +1,113 @@
+.snackbar-wrapper{
+    position: fixed;
+    right: 1rem;
+    top: 1rem;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 999;
+}
+
+.snackbar{
+    margin: .5rem;
+    border-radius: 8px;
+    display: inline-flex;
+    padding: .85rem;
+    padding-left: .5rem;
+    background-color: $color-primary;
+    color: white;
+    box-shadow: 0 3px 12px rgba($color-primary,.5);
+    transition: .5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 999;
+    transform: translateY(20px);
+    animation: snackEnter 8s ease forwards;
+    .btn{
+        background-color: $color-primary;
+        color: white;
+        i {
+            pointer-events: none;
+        }
+        &:hover{
+            box-shadow: inset 0 0 0 50px rgba(#000,.1);
+        }
+    }
+    &.error{
+        background-color: $color-danger;
+        color: white;
+        box-shadow: 0 3px 12px rgba($color-danger,.5);
+        .btn{
+            background-color: $color-danger;
+            color: white;
+        }
+    }
+    &.success,
+    &.green{
+        background-color: $color-green;
+        color: darken($color-green, 20%);
+        box-shadow: 0 3px 12px rgba($color-green,.5);
+        .btn{
+            background-color: $color-green;
+            color: darken($color-green, 20%);
+        }
+    }
+    &.info,
+    &.blue{
+        background-color: $color-blue;
+        color: white;
+        box-shadow: 0 3px 12px rgba($color-blue,.5);
+        .btn{
+            background-color: $color-blue;
+            color: white;
+        }
+    }
+    &.warning,
+    &.yellow{
+        background-color: $color-yellow;
+        color: darken($color-yellow, 40%);
+        box-shadow: 0 3px 12px rgba($color-yellow,.5);
+        .btn{
+            background-color: $color-yellow;
+            color: darken($color-yellow, 40%);
+        }
+    }
+    &-content{
+        padding:0 .85rem;
+        line-height: 1.2;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+    }
+    &.active{
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+        animation: none;
+    }
+}
+
+@keyframes snackEnter{
+    0%{
+        transform: translateY(20px);
+        opacity: 0;
+        visibility: visible;
+    }
+    5%{
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    95%{
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    100%{
+        transform: translatex(-10px);
+        opacity: 0;
+        visibility: hidden;
+        display: none;
+    }
+}

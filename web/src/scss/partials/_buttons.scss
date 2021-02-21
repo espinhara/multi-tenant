@@ -1,0 +1,319 @@
+@mixin button($color-bg, $color-text){
+    background-color: $color-bg;
+    color: $color-text;
+    &:hover{
+        background-color: darken($color-bg, 10%);
+        color: $color-text;
+    }
+    &-ghost{
+        background: transparent;
+        border: 1px solid $color-bg;
+        color: $color-bg;
+        &:hover{
+            border: 1px solid darken($color-bg, 10%);
+            color: darken($color-bg, 10%);
+        }
+    }
+    &.xl{
+        box-shadow: 0 4px 12px rgba($color-bg,.5), 0 4px 6px rgba(0,0,0,.05);
+    }
+    &.active,
+    .active{
+        background-color: darken($color-bg, 8%);
+        color: $color-text;
+        box-shadow: 0 0 0 3px rgba($color-bg,.3);
+        &.active-red{
+            color: white;
+            background-color: $color-red;    
+        }
+        &.active-green{
+            color: white;
+            background-color: $color-green;    
+        }
+        &.active-primary{
+            color: white;
+            background-color: $color-primary;    
+        }
+        &.active-yellow{
+            color: white;
+            background-color: $color-yellow;
+        }
+        &.active-blue{
+            color: white;
+            background-color: $color-blue;    
+        }
+    }
+}
+
+@mixin buttonGray($color-bg, $color-text){
+    background-color: $color-bg;
+    color: $color-text;
+    &:hover{
+        background-color: darken($color-bg, 3%);
+        color:darken($color-text, 8%);
+    }
+    &-ghost{
+        background: transparent;
+        border: 1px solid $color-bg;
+        color: $color-text;
+        &:hover{
+            border: 1px solid darken($color-bg, 10%);
+            color: darken($color-text, 10%);
+        }
+    }
+    &.active,
+    .active{
+        background-color: darken($color-bg, 8%);
+        color: $color-text;
+        box-shadow: 0 0 0 3px rgba($color-bg,.3);
+        &.active-red{
+            color: white;
+            background-color: $color-red;    
+        }
+        &.active-green{
+            color: white;
+            background-color: $color-green;    
+        }
+        &.active-primary{
+            color: white;
+            background-color: $color-primary;    
+        }
+        &.active-yellow{
+            color: white;
+            background-color: $color-yellow;    
+        }
+        &.active-blue{
+            color: white;
+            background-color: $color-blue;    
+        }
+    }
+}
+
+.btn{
+    padding: .822rem 1.5rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    border:1px solid transparent;
+    cursor: pointer;
+    transition: background .3s;
+    position: relative;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    margin: 0;
+    text-decoration: none;
+    &-primary{
+        @include button($color-primary, $color-white);
+        &:hover {
+            color:white !important;
+        }
+    }
+    &-red,
+    &-danger{
+        @include button($color-red, $color-white);
+    }
+    &-green,
+    &success{
+        @include button($color-green, white);
+    }
+    &-coral,
+    &-warning{
+        @include button($color-coral, white);
+    }
+    &-yellow{
+        @include button($color-yellow, white);
+    }
+    &-bg{
+        @include buttonGray($color-bg, $color-gray4);
+    }
+    &-gray1{
+        @include buttonGray($color-gray1, $color-gray4);
+    }
+    &-gray2{
+        @include buttonGray($color-gray2, $color-text);
+    }
+    &-gray3{
+        @include buttonGray($color-gray3, $color-text);
+    }
+    &-gray4{
+        @include buttonGray($color-gray4, $color-white);
+    }
+    &-white{
+        @include buttonGray(white, $color-gray4);
+    }
+    &-transparent{
+        @include buttonGray(transparent, $color-gray4);
+    }
+    &-blue{
+        @include buttonGray(white, $color-blue);
+    }
+    &-bg-blue{
+        @include buttonGray($color-blue, white);
+    }
+    &-google{
+        background: transparent;
+        border: 1px solid $color-gray2;
+        color: $color-gray4;
+        transition: .3s;
+        &:hover{
+            border: 1px solid darken($color-gray3, 20%);
+            color: darken($color-text, 20%);
+        }
+        background: url('data:image/svg+xml;charset=UTF-8,<svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21 10.2297C21 9.54989 20.9438 8.86644 20.8238 8.19769H11.2006V12.0485H16.7114C16.4827 13.2905 15.7479 14.3891 14.672 15.0873V17.5859H17.9597C19.8904 15.8442 21 13.2721 21 10.2297Z" fill="%234285F4"/><path d="M11.2005 20C13.9522 20 16.2727 19.1145 17.9634 17.5859L14.6757 15.0873C13.761 15.6972 12.5801 16.0426 11.2043 16.0426C8.54261 16.0426 6.28581 14.2826 5.47606 11.9162H2.08337V14.492C3.81533 17.8688 7.34298 20 11.2005 20Z" fill="%2334A853"/><path d="M5.4724 11.9162C5.04503 10.6743 5.04503 9.32942 5.4724 8.08746V5.51167H2.08345C0.636407 8.33732 0.636407 11.6664 2.08345 14.492L5.4724 11.9162Z" fill="%23FBBC04"/><path d="M11.2005 3.95738C12.6551 3.93533 14.0609 4.4718 15.1143 5.45655L18.0271 2.60151C16.1827 0.903916 13.7347 -0.029393 11.2005 2.50153e-06C7.34298 2.50153e-06 3.81533 2.13118 2.08337 5.51167L5.47231 8.08745C6.27831 5.71744 8.53886 3.95738 11.2005 3.95738Z" fill="%23EA4335"/></svg>') no-repeat left 1rem center / 20px auto transparent;
+    }
+    &.hover-primary{
+        &:hover{
+            background-color: $color-primary;
+            color: white;
+        }
+    }
+    &.hover-danger,
+    &.hover-red{
+        &:hover{
+            background-color: $color-danger;
+            color: white;
+        }
+    }
+    &.hover-blue{
+        &:hover{
+            background-color: $color-blue;
+            color: white;
+        }
+    }
+    &.hover-coral{
+        &:hover{
+            background-color: $color-coral;
+            color: white;
+        }
+    }
+    &.hover-green{
+        &:hover{
+            background-color: $color-green;
+            color: white;
+        }
+    }
+    //sizes
+    &.xs{
+        padding: .15rem .8rem;
+        i{
+            font-size: 1rem;
+        }
+    }
+    &.sm{
+        padding: .3rem 1.2rem;
+        i{
+            font-size: 1.1429rem;
+        }
+    }
+    &.lg{
+        padding: .8rem 1.8rem;
+        i{
+            font-size: 1.1429rem;
+        }
+    }
+    &.xl{
+        border: 0;
+        width: 280px;
+        border-radius: 4px;
+        text-align: left;
+        padding: 1.5rem;
+        color: white;
+        font-size: 1.2857rem;
+        display: block;
+        &:after{
+            content: attr(data-icon);
+            font-family: "Feather";
+            font-size: 32px;
+            line-height: 1;
+            display: block;
+            text-align: right;
+            margin-top: 1rem;
+            font-weight: 400;
+        }
+    }
+    //style adjust
+    &.text-uppercase{
+        font-size: 0.8571rem;
+        font-weight: 600;
+    }
+    &-block{
+        width: 100%;
+    }
+    &.icon{
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 !important;
+        width: 42px;
+        height: 42px;
+        &.xs{
+            width: 24px;
+            height: 24px;
+        }
+        &.sm{
+            width: 36px;
+            height: 36px;
+        }
+        &.lg{
+            width: 46px;
+            height: 46px;
+        }
+        &.rounded{
+            border-radius: 50px;
+        }
+    }
+    &.disabled,
+    &:disabled{
+        @include buttonGray($color-gray2, $color-white);
+        cursor: not-allowed;
+    }
+    &.loading{
+        text-indent: -99999px;
+        pointer-events: none;
+        &:after{
+            content: '';
+            display: block;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            width: 20px;
+            height: 20px;
+            border-radius: 20px;
+            border: 2px solid rgba(255,255,255,.8);
+            border-right-color: transparent;
+            animation: rotate .5s linear infinite;
+        }
+    }
+}
+
+@keyframes rotate{
+    from{
+        transform: rotate(0);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
+
+/*####################################################
+BUTTON GROUP
+####################################################*/
+
+.btn-group{
+    display: inline-flex;
+    align-items: center;
+    &.space{
+        > *{
+            margin-left: .5rem;
+            &:first-child{
+                margin: 0;
+            }
+        }
+    }
+}

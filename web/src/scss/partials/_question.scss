@@ -1,0 +1,180 @@
+.question{
+    background-color: $color-white;
+    padding: 1.5rem;
+    border-bottom: 8px solid $color-bg;
+    counter-increment: q-count;
+    &.script{
+        counter-increment: none;
+    }
+    &.no-count {
+        counter-increment: q-count - 1;
+    }
+    .question-counter{
+        &:before{
+            content: counter(q-count);
+        }
+    }
+    .question-header{
+        display: flex;
+        justify-content: space-between;
+        user-select: noneuser select;
+    }
+    .question-tools{
+        display: flex;
+        > * {
+            margin-left: 3px;
+            &:first-child{
+                margin: 0;
+            }
+        }
+    }
+    &-content{
+        padding: 1.5rem 0;
+        .question-field{
+            font-family:"Source Sans Pro";
+            caret-color: $color-primary;
+            resize: none;
+            border: 0;
+            padding: .5rem 0;
+            width: 100%;
+            font-size: 1.2143rem;
+            letter-spacing: -.03em;
+            font-weight: 600;
+            color: $color-text;
+            transition: .5s;
+            box-shadow: inset 0 -1px rgba($color-text,.2);
+            background-size: 0 100%;
+            background-repeat: no-repeat;
+            background-image: linear-gradient(180deg, transparent 0%, transparent 98%, $color-primary 98%, $color-primary 100%);
+            &::placeholder{color: $color-gray3; font-weight: 400;}
+            &::-webkit-input-placeholder{color: $color-gray3;font-weight: 400;}
+            &:-ms-input-placeholder{color: $color-gray3; font-weight: 400;}
+            &:focus{
+                background-size: 100% 100%;
+            }
+        }
+        .question-description{
+            font-family:"Source Sans Pro";
+            border: 0;
+            padding: .5rem 0;
+            width: 100%;
+            font-size: 1.1429rem;
+            resize: none;
+            color: $color-text;
+            &::placeholder{color: $color-gray3}
+            &::-webkit-input-placeholder{color: $color-gray3}
+            &:-ms-input-placeholder{color: $color-gray3}
+        }
+    }
+}
+
+.question-id{
+    display: flex;
+    align-items: center;
+    .btn{
+        cursor: grab !important;
+        &:first-child{
+            border-radius: 4px 0 0 4px;
+        }
+        &:nth-child(2){
+            border-radius: 0 4px 4px 0;
+        }
+    }
+}
+
+.answer-content{
+    counter-reset: answer;
+    .answer-item{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        counter-increment: answer;
+        font-size: 1.1429rem;
+        padding: 2px 0;
+        background-color: white !important;
+    }
+    .counter{
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        position: relative;
+        &:before{
+            content: counter(answer)".";
+            flex-grow: 0;
+            flex-shrink: 0;
+            margin-right: .3rem;
+        }
+        .btn{
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: .3s;
+            //pointer-events: none;
+            &:hover{
+                color: $color-danger;
+            }
+        }
+        .answer-field:focus{
+            + .btn{
+                opacity: 1;
+                visibility: visible;
+                pointer-events: unset;
+            }
+        }
+    }
+    .answer-field{
+        flex-grow: 1;
+        caret-color: $color-primary;
+        border: 0;
+        font-size: 1.1429rem;
+        transition: .3s;
+        border: 1px solid transparent;
+        padding: .4rem 30px .4rem .4rem;
+        border-radius: 4px;
+        color: $color-text;
+        &::placeholder{color: $color-gray4}
+        &::-webkit-input-placeholder{color: $color-gray4}
+        &:-ms-input-placeholder{color: $color-gray4}
+        &:hover{
+            border: 1px solid $color-gray1;
+        }
+        &:focus{
+            border: 1px solid $color-gray2
+        }
+    }
+    .answer-tools{
+        display: flex;
+        .btn{
+            margin-left: 4px;
+        }
+    }
+}
+
+.parameter-field{
+    flex-grow: 1;
+    caret-color: $color-primary;
+    background: transparent;
+    border: 0;
+    font-size: 1.1429rem;
+    transition: .3s;
+    border: 1px solid transparent;
+    padding: .4rem;
+    border-radius: 4px;
+    color: $color-text;
+    margin-left: 1rem;
+    font-size: 1rem;
+    &::placeholder{color: $color-gray4}
+    &::-webkit-input-placeholder{color: $color-gray4}
+    &:-ms-input-placeholder{color: $color-gray4}
+    &:hover{
+        border: 1px solid $color-gray1;
+    }
+    &:focus{
+        border: 1px solid $color-gray2
+    }
+}

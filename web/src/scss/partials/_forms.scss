@@ -1,0 +1,208 @@
+.form-group{
+    margin-bottom: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    label{
+        color: $color-gray4;
+    }
+    .input-group{
+        display: flex;
+        align-items: center;
+        transition: .3s;
+        position: relative;
+        .input-field{
+            position: relative;
+            display: flex;
+            align-items: center;
+            width: 100%;
+            &:after{
+                @include feather(16);
+                flex-shrink: 0;
+                position: absolute;
+                right: 1rem;
+                transition: .3s;
+            }
+            &:first-child{
+                .form-control{
+                    border-radius: 4px 0 0 4px;
+                }
+            }
+            &:last-child{
+                .form-control{
+                    border-radius: 0 4px 4px 0;
+                }
+            }
+            &:only-child{
+                .form-control{
+                    border-radius: 4px;
+                }
+            }
+        }
+        .btn{
+            padding: .822rem 1rem;
+            font-size: 1rem;
+            &:first-child{
+                border-radius: 4px 0 0 4px;
+            }
+            &:only-child{
+                border-radius: 4px;
+            }
+            &:last-child{
+                border-radius: 0 4px 4px 0;
+            }
+        }
+        .tooltip:last-child > .btn{
+            border-radius: 0 4px 4px 0;
+        }
+        .tooltip:first-child > .btn{
+            border-radius: 4px 0 0 4px;
+        }
+    }
+    .hint{
+        display: none;
+        font-size: 0.8571rem;
+        &.persistent{
+            display: block;
+        }
+    }
+    &.has-error{
+        .input-field:after{
+            content: '\e902';
+            color: rgba($color-red,.75);
+        }
+        .form-control{
+            padding-right: 3rem;
+            color: $color-red;
+            border:1px solid $color-red;
+            caret-color: $color-red;
+            &:focus{
+                box-shadow: 0 0 0 3px rgba($color-red, .2);
+            }
+        }
+        label{
+            color: $color-red;
+        }
+        .hint{
+            display: block;
+            color: $color-red;
+        }
+    }
+    &.is-success{
+        .input-field:after{
+            content: '\e92d';
+            color: $color-green;
+        }
+        .form-control{
+            padding-right: 3rem;
+            border:1px solid $color-green;
+            caret-color: $color-green;
+            &:focus{
+                box-shadow: 0 0 0 3px rgba($color-green, .2);
+            }
+        }
+        label{
+            color: $color-text;
+        }
+        .hint{
+            display: none
+        }
+    }
+}
+
+.form-control{
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    &::placeholder{color: $color-gray3}
+    &::-webkit-input-placeholder{color: $color-gray3}
+    &:-ms-input-placeholder{color: $color-gray3}
+    padding: 0 1rem;
+    border:1px solid $color-gray3;
+    color: $color-text;
+    border-radius: 4px;
+    min-height: 42px;
+    font-size: 1rem;
+    transition: .3s;
+    width: 100%;
+    line-height: 1.7;
+    caret-color: $color-primary;
+    margin: 0;
+    &:focus{
+        box-shadow: 0 0 0 3px rgba($color-primary,.2);
+        border:1px solid $color-primary;
+    }
+    &-ghost{
+        background: transparent;
+    }
+    &:disabled{
+        background-color: $color-bg;
+    }
+}
+select.form-control{
+    padding: 0 2.8rem 0 1rem;
+    background: url('data:image/svg+xml;charset=UTF-8,<svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.02734 0.472656C1.875 0.332031 1.69922 0.261719 1.5 0.261719C1.30078 0.261719 1.125 0.337891 0.972656 0.490234C0.832031 0.630859 0.761719 0.800781 0.761719 1C0.761719 1.19922 0.832031 1.375 0.972656 1.52734L5.47266 6.02734C5.625 6.17969 5.80078 6.25586 6 6.25586C6.19922 6.25586 6.375 6.17969 6.52734 6.02734L11.0273 1.52734C11.1328 1.43359 11.2031 1.32227 11.2383 1.19336C11.2734 1.06445 11.2734 0.935547 11.2383 0.806641C11.2031 0.666016 11.1387 0.548828 11.0449 0.455078C10.9512 0.361328 10.834 0.296875 10.6934 0.261719C10.5645 0.226562 10.4355 0.226562 10.3066 0.261719C10.1777 0.296875 10.0664 0.367188 9.97266 0.472656L6 4.44531L2.02734 0.472656Z" fill="%23999fb0"/></svg>') no-repeat right 1rem center / 12px auto $color-white;
+    &-ghost{
+        background: url('data:image/svg+xml;charset=UTF-8,<svg width="12" height="7" viewBox="0 0 12 7" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.02734 0.472656C1.875 0.332031 1.69922 0.261719 1.5 0.261719C1.30078 0.261719 1.125 0.337891 0.972656 0.490234C0.832031 0.630859 0.761719 0.800781 0.761719 1C0.761719 1.19922 0.832031 1.375 0.972656 1.52734L5.47266 6.02734C5.625 6.17969 5.80078 6.25586 6 6.25586C6.19922 6.25586 6.375 6.17969 6.52734 6.02734L11.0273 1.52734C11.1328 1.43359 11.2031 1.32227 11.2383 1.19336C11.2734 1.06445 11.2734 0.935547 11.2383 0.806641C11.2031 0.666016 11.1387 0.548828 11.0449 0.455078C10.9512 0.361328 10.834 0.296875 10.6934 0.261719C10.5645 0.226562 10.4355 0.226562 10.3066 0.261719C10.1777 0.296875 10.0664 0.367188 9.97266 0.472656L6 4.44531L2.02734 0.472656Z" fill="%23999fb0"/></svg>') no-repeat right 1rem center / 12px auto transparent;
+    }
+    &:required{
+        color: $color-gray4;
+        &:valid{
+            color: $color-text;
+        }
+        option:disabled{
+            color: $color-text;
+        }
+    }
+}
+
+
+.checkbox{
+    input{
+        display: none;
+    }
+    label{
+        cursor: pointer;
+        &::before{
+            content: '';
+            display: inline-flex;
+            width: 20px;
+            height: 20px;
+            font-family: feather;
+            font-size: 18px;
+            color: $color-white;
+            box-shadow: inset 0 0 0 2px $color-gray3;
+            border-radius: 4px;
+            transition: .3s;
+            margin-right: .5rem;
+            vertical-align: middle;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    input:checked + label:before{
+        content: '\e92d';
+        box-shadow: inset 0 0 0 2px transparent;
+        background-color: $color-primary;
+    }
+    &.red{
+        input:checked + label:before{
+            background-color: $color-red;
+        }
+    }
+    &.yellow{
+        input:checked + label:before{
+            background-color: $color-yellow;
+        }
+    }
+    &.coral{
+        input:checked + label:before{
+            background-color: $color-coral;
+        }
+    }
+    &.blue{
+        input:checked + label:before{
+            background-color: $color-blue;
+        }
+    }
+}

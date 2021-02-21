@@ -1,0 +1,42 @@
+.color-palettes-wrapper{
+    padding: 1rem 0;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -.5rem;
+    width: 100%;
+    .color-palette{
+        cursor: pointer;
+        border: 1px solid $color-gray2;
+        border-radius: 4px;
+        padding: .5rem;
+        width: calc(33.33% - 1rem);
+        margin: .5rem;
+        min-width: 150px;
+        transition: .3s;
+        &:hover{
+            box-shadow: 0 0 0 3px rgba($color-primary,.4);
+        }
+        &.active{
+            box-shadow: 0 0 0 3px $color-primary;
+        }
+        &-title{
+            color: $color-gray4;
+        }
+        .colors{
+            display: flex;
+            height: 48px;
+            position: relative;
+            .color{
+                flex-basis: 0;
+                flex-grow: 1;
+                display: table-cell;
+                &:first-child{
+                    border-radius: 4px 0 0 4px;
+                }
+                &:last-child{
+                    border-radius: 0 4px 4px 0;
+                }
+            }
+        }
+    }
+}

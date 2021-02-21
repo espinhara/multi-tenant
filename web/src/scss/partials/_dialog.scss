@@ -1,0 +1,123 @@
+.dialog{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(#333,.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: .3s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 100;
+    &-content{
+        max-height: calc(100vh - 4rem);
+        display: flex;
+        flex-direction: column;
+        transform: translateY(-20px);
+        transition: .3s;
+        border-radius: 6px;
+        background-color: $color-white;
+        position: relative;
+        min-width: 280px;
+        width: 100%;
+        margin: 1rem;
+        box-shadow: 0 16px 32px -8px rgba(#000,.5);
+        &-header{
+            flex-grow: 0;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2.5rem 4rem 1rem 2rem;
+            z-index: 90;
+            position: relative;
+            flex-shrink: 0;
+            .close{
+                font-size: 1.7143rem;
+                color: $color-gray4;
+                position: absolute;
+                right: .5rem;
+                top: .5rem;
+            }
+        }
+        &-body{
+            padding: 0 2rem;
+            flex-grow: 1;
+        }
+        &-footer{
+            padding: 1rem 2rem 2rem;
+            flex-grow: 0;
+            flex-shrink: 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        &.xs{
+            max-width: 350px;
+        }
+        &.sm{
+            max-width: 420px;
+        }
+        &.md{
+            max-width: 580px;
+        }
+        &.lg{
+            max-width: 780px;
+        }
+        &.no-footer{
+            .dialog-content-footer{
+                display: none;
+            } 
+        }
+        &.full-preview{
+            max-width: unset;
+            margin: -1rem;
+            max-height: unset;
+            border-radius: 0;
+            box-shadow: none;
+            height: 100vh;
+            transform: translateY(100%);
+            display: flex;
+            flex-direction: column;
+            .dialog-content-header{
+                padding: 1rem;
+                > *{
+                    flex-basis: 0;
+                    flex-grow: 1;
+                }
+                .close{
+                    color: $color-gray4;
+                    position: relative;
+                    right: unset;
+                    top: unset;
+                }
+            }
+            .dialog-content-body{
+                background-color: $color-text;
+                flex-grow: 1;
+                padding: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: calc(100% - 70px);
+            }
+            .dialog-content-footer{
+                display: none;
+            }
+        }
+    }
+    &.scrollable{
+        .dialog-content-body{
+            overflow-y: auto;
+        }
+    }
+    &.active{
+        opacity: 1;
+        visibility: visible;
+        .dialog-content{
+            transform: translateY(0);
+        }
+    }
+}

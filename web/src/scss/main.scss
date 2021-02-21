@@ -1,0 +1,223 @@
+@import "partials/reset";
+@import "partials/main-variables.scss";
+@import "partials/colors";
+@import "partials/spacing";
+@import "partials/typography";
+@import "partials/grid";
+@import "partials/helpers";
+@import "partials/card";
+@import "partials/popover";
+@import "partials/buttons";
+@import "partials/forms";
+@import "partials/dividers";
+@import "partials/tooltip";
+@import "partials/avatar";
+@import "partials/dropdown";
+@import "partials/research";
+@import "partials/question";
+@import "partials/dialog";
+@import "partials/list-group";
+@import "partials/switch";
+@import "partials/color-palettes";
+@import "partials/visibility";
+@import "partials/snackbar";
+@import "partials/skeleton";
+@import "partials/badge";
+
+html,body,#root{
+    height: 100%;
+    background-color: $color-bg;
+    overflow: hidden;
+}
+
+.logo{
+    background: $logo;
+    width: 200px;
+    height: 32px;
+    flex-shrink: 0;
+    position: relative;
+    &.sm{
+        width: 155px;
+        height: 24px;
+    }
+}
+
+.header{
+    .logo{
+        &:before{
+            content: '';
+            transition: .3s;
+            opacity: 0;
+            display: block;
+            width: 24px;
+            height: 24px;
+            left: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml;charset=UTF-8, <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%231abff3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>') no-repeat left bottom / 22px 22px $color-white;
+        }
+        &:hover{
+            &:before{
+                opacity: 1;
+            }
+        }
+    }
+}
+
+a{
+    color: darken($color-primary, 30%);
+    transition: .3s;
+    cursor: pointer;
+    &:hover{
+        color: $color-primary !important
+    }
+    &.text-color-red:hover{
+        color: darken($color-red,10%) !important
+    }
+    &.text-color-yellow:hover{
+        color: darken($color-yellow, 10%) !important
+    }
+    &.text-color-green:hover{
+        color: darken($color-green, 10%) !important
+    }
+    &.text-color-coral:hover{
+        color: darken($color-coral, 10%) !important
+    }
+    &.text-color-blue:hover{
+        color: darken($color-blue, 10%) !important
+    }
+}
+
+/*####################################################
+MAIN
+####################################################*/
+main{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+/*####################################################
+HEADER
+####################################################*/
+
+$header-height: 5.1429rem;
+
+.header{
+    width: 100%;
+    flex-shrink: 0;
+    flex-grow: 0;
+    height: $header-height;
+    background-color: $color-white;
+    display: flex;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    justify-content: space-between;
+    border-bottom: 1px solid $color-gray2;
+}
+
+
+/*####################################################
+CONTENT
+####################################################*/
+
+.content{
+    flex-grow: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 1.5rem .5rem 10rem;
+}
+
+.framePesquisa{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.container-preview{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    position: relative;
+    overflow-y: auto;
+    iframe{
+        position: relative;
+    }
+    &.desktop{
+        iframe{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    &.frame{
+        align-items: flex-end;
+        justify-content: flex-end;
+        iframe{
+            width: 900px;
+            height: 300px;
+        }
+    }
+    &.smartphone{
+        align-items: flex-start;
+        padding: 40px 0;
+        &.iphone11{
+            &:before{
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 0;
+                width: 437px;
+                height: 926px;
+                background: url(/img/iphone11.svg) no-repeat top / auto;
+            }
+            &:after{
+                content: '';
+                display: block;
+                position: absolute;
+                margin-top: 47px;
+                width: 219px;
+                height: 30px;
+                z-index: 2;
+                background: url(/img/iphone11_cam.svg) no-repeat center / auto;
+            }
+            iframe{
+                margin: 48px 0 60px;
+                border-radius: 38px;
+                width: 375px;
+                height: 812px;
+            }
+        }
+        &.iphone8{
+            &:before{
+                content: '';
+                display: block;
+                position: absolute;
+                z-index: 0;
+                width: 415px;
+                height: 866px;
+                background: url(/img/iphone8.svg) no-repeat top / 100% auto;
+            }
+            iframe{
+                margin: 100px 0 100px;
+                border-radius: 6px;
+                width: 375px;
+                height: 667px;
+            }
+        }
+    }
+}
+
+
+/*####################################################
+FEATHER ICONS
+####################################################*/
+
+.feather,
+.feather:before{
+    line-height: 1;
+}
+

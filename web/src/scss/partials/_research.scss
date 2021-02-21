@@ -1,0 +1,110 @@
+.research{
+    overflow: hidden !important;
+    &-content{
+        flex-grow: 1;
+        overflow-y: scroll;
+        overflow-y: overlay;
+        position: relative;
+    }
+    &-header{
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        padding: 1.5rem;
+        flex-shrink: 0;
+    }
+    &-tools{
+        display: flex;
+        align-items: center;
+        > *{
+            margin-left: 1rem;
+            &:first-child{
+                margin: 0;
+            }
+        }
+    }
+    
+}
+
+.question-list{
+    counter-reset: q-count;
+}
+
+.research-preview{
+    padding: 0;
+    @media (max-width:767px){
+        display: none;
+    }
+}
+.research-title{
+    font-size: 1.4286rem;
+    background: none;
+    padding: .35rem .5rem;
+    border-radius: 4px;
+    font-weight: 400;
+    width: 100%;
+    color: $color-text;
+    border: 1px solid transparent;
+    margin-right: 1rem;
+    transition: .4s;
+    &:hover{
+        border: 1px solid $color-gray2;
+    }
+    &:focus{
+        box-shadow: 0 0 0 3px rgba($color-primary,.2);
+        border:1px solid $color-primary;
+        background: white;
+        color: $color-text-dark;
+    }
+}
+
+.questions,
+.parameters{
+    counter-reset: q-count;
+}
+
+.parameters{
+    h5{
+        text-transform: uppercase;
+        font-size: .875rem;
+        text-align: center;
+        padding: 1.5rem 0 .5rem;
+        color: $color-gray4;
+    }
+    .question{
+        background-color: $color-gray2;
+        border-bottom: 1px solid #f4f3fa;
+    }
+    &.active{
+        display: block;
+    }
+}
+
+.toast-wrapper {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (min-width: 767px){
+        width: 50%;   
+    }
+    .toast {
+        width: 60%;
+        background: rgba(0,0,0,0.7);
+        color: white;
+        padding: 0.5rem 1rem;
+        text-align: center;
+        visibility: hidden;
+        opacity: 0;
+        transition: all 500ms ease;
+        transform: translateY(100px);
+        &.active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0px);
+        }
+    }
+}
